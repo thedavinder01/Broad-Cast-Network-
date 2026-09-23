@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcasts </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/messages.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                
+            </div>
+
+            <div class="brand-text">
+                
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        COMMUNICATION CENTER
+                    </span>
+
+                    <h1>
+                        Broadcasts
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="page-content">
+
+            <div class="page-heading">
+
+                <div>
+                    <span class="page-eyebrow">COMMUNICATION CENTER</span>
+                    <h1>Broadcast Center</h1>
+                    <p>Create and manage secure member communications.</p>
+                </div>
+
+            </div>
+
+
+            <!-- DEMO NOTICE -->
+            <div class="demo-notice">
+
+                <i class="bi bi-info-circle-fill"></i>
+
+                <div>
+                    <strong>Live Delivery Status</strong>
+                    <p>
+                        Email, SMS and WhatsApp channels are connected. Delivery status
+                        updates automatically once a broadcast is sent.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="message-stats">
+
+                <div class="message-stat-card">
+                    <div class="stat-icon blue">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Recipients</span>
+                        <strong id="recipientStat">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="message-stat-card">
+                    <div class="stat-icon green">
+                        <i class="bi bi-send-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Messages Sent</span>
+                        <strong id="messagesSentStat">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="message-stat-card">
+                    <div class="stat-icon purple">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Delivered OK</span>
+                        <strong id="deliveredOkStat">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="message-stat-card">
+                    <div class="stat-icon orange">
+                        <i class="bi bi-x-circle-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Failed</span>
+                        <strong id="failedStat">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- COMPOSER -->
+            <div class="broadcast-grid">
+
+                <!-- LEFT -->
+                <div class="panel composer-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Create Broadcast</h3>
+                            <p>Compose a message for your members.</p>
+                        </div>
+
+                        <i class="bi bi-megaphone-fill panel-header-icon"></i>
+                    </div>
+
+
+                    <form id="broadcastForm">
+
+                        <!-- TITLE -->
+                        <div class="form-group">
+
+                            <label for="messageTitle">
+                                Message Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="messageTitle"
+                                class="form-control"
+                                placeholder="Enter broadcast title"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CHANNELS -->
+                        <div class="form-group">
+
+                            <label>
+                                Send via
+                            </label>
+
+                            <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:8px;">
+
+                                <label style="display:flex; align-items:center; gap:7px; font-size:12.5px; color:#40506a; font-weight:700; cursor:pointer;">
+                                    <input type="checkbox" id="channelEmail" checked style="width:15px; height:15px;">
+                                    <i class="bi bi-envelope-fill" style="color:#1479ff;"></i> Email
+                                </label>
+
+                                <label style="display:flex; align-items:center; gap:7px; font-size:12.5px; color:#40506a; font-weight:700; cursor:pointer;">
+                                    <input type="checkbox" id="channelSms" style="width:15px; height:15px;">
+                                    <i class="bi bi-chat-dots-fill" style="color:#16845b;"></i> SMS
+                                </label>
+
+                                <label style="display:flex; align-items:center; gap:7px; font-size:12.5px; color:#40506a; font-weight:700; cursor:pointer;">
+                                    <input type="checkbox" id="channelWhatsapp" style="width:15px; height:15px;">
+                                    <i class="bi bi-whatsapp" style="color:#25d366;"></i> WhatsApp
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL RECIPIENTS -->
+                        <div class="form-group" id="emailRecipientsGroup">
+
+                            <label for="recipientEmails">
+                                Recipient email addresses
+                            </label>
+
+                            <textarea
+                                id="recipientEmails"
+                                class="form-control"
+                                rows="2"
+                                placeholder="jordan@company.com, priya@company.com"
+                            ></textarea>
+
+                            <div class="recipient-preview">
+                                <i class="bi bi-envelope"></i>
+                                <span>
+                                    <strong id="emailCount">0</strong> email recipient(s)
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PHONE RECIPIENTS -->
+                        <div class="form-group" id="phoneRecipientsGroup" style="display:none;">
+
+                            <label for="recipientPhones">
+                                Recipient phone numbers (include country code, e.g. +91)
+                            </label>
+
+                            <textarea
+                                id="recipientPhones"
+                                class="form-control"
+                                rows="2"
+                                placeholder="+919876543210, +14155551234"
+                            ></textarea>
+
+                            <div class="recipient-preview">
+                                <i class="bi bi-phone"></i>
+                                <span>
+                                    <strong id="phoneCount">0</strong> phone recipient(s)
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+                        <div class="form-group">
+
+                            <div class="label-row">
+
+                                <label for="messageBody">
+                                    Message
+                                </label>
+
+                                <span id="charCounter">
+                                    0 / 1000
+                                </span>
+
+                            </div>
+
+                            <textarea
+                                id="messageBody"
+                                class="form-control message-textarea"
+                                maxlength="1000"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- ATTACHMENT UI -->
+                        <div class="attachment-box">
+
+                            <button
+                                type="button"
+                                class="attachment-btn"
+                                id="attachmentBtn"
+                            >
+                                <i class="bi bi-paperclip"></i>
+                                Attach File
+                            </button>
+
+                            <span id="attachmentName">
+                                No file selected
+                            </span>
+
+                            <input
+                                type="file"
+                                id="attachmentInput"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <!-- SCHEDULE -->
+                        <div class="schedule-section">
+
+                            <div class="schedule-header">
+
+                                <div>
+                                    <strong>Schedule Broadcast</strong>
+                                    <small>
+                                        Send immediately or schedule for later.
+                                    </small>
+                                </div>
+
+                                <label class="switch">
+                                    <input
+                                        type="checkbox"
+                                        id="scheduleToggle"
+                                    >
+                                    <span class="slider"></span>
+                                </label>
+
+                            </div>
+
+
+                            <div
+                                class="schedule-fields"
+                                id="scheduleFields"
+                            >
+
+                                <div>
+                                    <label>Date</label>
+
+                                    <input
+                                        type="date"
+                                        id="scheduleDate"
+                                        class="form-control"
+                                    >
+                                </div>
+
+                                <div>
+                                    <label>Time</label>
+
+                                    <input
+                                        type="time"
+                                        id="scheduleTime"
+                                        class="form-control"
+                                    >
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+                        <div class="composer-actions" data-requires-role="admin,manager">
+
+                            <button
+                                type="button"
+                                class="btn-secondary-custom"
+                                id="saveDraft"
+                            >
+                                <i class="bi bi-file-earmark"></i>
+                                Save Draft
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn-primary-custom"
+                                id="sendBroadcastSubmitBtn"
+                            >
+                                <i class="bi bi-send-fill"></i>
+                                <span id="sendButtonText">
+                                    Send Broadcast
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- RIGHT PREVIEW -->
+                <div class="panel preview-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Message Preview</h3>
+                            <p>Preview before sending.</p>
+                        </div>
+
+                        <i class="bi bi-eye-fill panel-header-icon"></i>
+
+                    </div>
+
+
+                    <div class="message-preview-card">
+
+                        <div class="preview-top">
+
+                            <div class="preview-avatar">
+                                
+                            </div>
+
+                            <div>
+                                
+                            </div>
+
+                        </div>
+
+
+                        <div class="preview-content">
+
+                            <h4 id="previewTitle">
+                                Your message title
+                            </h4>
+
+                            <p id="previewBody">
+                                Your message preview will appear here.
+                            </p>
+
+                        </div>
+
+
+                        <div class="preview-footer">
+
+                            <span id="previewRecipients">
+                                <i class="bi bi-people"></i>
+                                0 recipients
+                            </span>
+
+                            <span>
+                                <i class="bi bi-shield-check"></i>
+                                Secure
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="delivery-summary">
+
+                        <h4>Delivery Summary</h4>
+
+                        <div class="summary-row">
+                            <span>Recipients</span>
+                            <strong id="summaryRecipients">0</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Last send result</span>
+                            <strong id="summaryResult">—</strong>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Message type</span>
+                            <strong id="summaryType">Immediate</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT BROADCASTS -->
+            <div class="panel recent-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Recent Broadcasts</h3>
+                        <p>Latest communication activity.</p>
+                    </div>
+
+                    <button class="outline-btn" id="refreshMessages">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Refresh
+                    </button>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="messages-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Broadcast</th>
+                                <th>Audience</th>
+                                <th>Recipients</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="broadcastTableBody">
+
+                            <tr id="noBroadcastsRow">
+                                <td colspan="5" style="text-align:center; padding:50px 20px; color:#8b97a8;">
+                                    <i class="bi bi-megaphone" style="font-size:30px; color:#c3cad6; display:block; margin-bottom:12px;"></i>
+                                    <strong style="display:block; color:#45546a; font-size:14px; margin-bottom:5px;">No broadcasts sent yet</strong>
+                                    Send your first message above to see it appear here.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/messages.js"></script>
+
+</body>
+</html>

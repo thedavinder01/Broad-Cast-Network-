@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+             
+            </div>
+
+            <div class="brand-text">
+            
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        SECURE ADMINISTRATION
+                    </span>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             DASHBOARD BODY
+             ================================================= -->
+
+        <section class="dashboard-content">
+
+
+            <!-- =================================================
+                 WELCOME BANNER
+                 ================================================= -->
+
+            <section class="welcome-banner">
+
+                <div class="welcome-content">
+
+                    <span class="eyebrow">
+                        ADMIN CONTROL CENTER
+                    </span>
+
+                    <h2>
+                        Welcome back, Administrator
+                    </h2>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-visual">
+
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="welcome-shield">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+                 ================================================= -->
+
+            <section class="stats-grid">
+
+
+                <!-- Total Members -->
+                <article class="stat-card purple">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Members
+                        </span>
+
+                        <h3 id="statTotalMembers">
+                            0
+                        </h3>
+
+                        <small class="positive" id="statTotalMembersTrend">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            Live
+                        </small>
+
+                    </div>
+
+                    <div class="card-decoration"></div>
+
+                </article>
+
+
+                <!-- Active Members -->
+                <article class="stat-card green">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Active Members
+                        </span>
+
+                        <h3 id="statActiveMembers">
+                            0
+                        </h3>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            Live
+                        </small>
+
+                    </div>
+
+                    <div class="card-decoration"></div>
+
+                </article>
+
+
+                <!-- Messages -->
+                <article class="stat-card orange">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Messages Sent
+                        </span>
+
+                        <h3 id="statMessagesSent">
+                            0
+                        </h3>
+
+                        <small class="positive">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            Live
+                        </small>
+
+                    </div>
+
+                    <div class="card-decoration"></div>
+
+                </article>
+
+
+                <!-- Delivery -->
+                <article class="stat-card pink">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Delivery Rate
+                        </span>
+
+                        <h3 id="statDeliveryRate">
+                            —
+                        </h3>
+
+                        <small class="excellent" id="statDeliveryRateTag">
+                            <i class="fa-solid fa-circle-check"></i>
+                            No data yet
+                        </small>
+
+                    </div>
+
+                    <div class="card-decoration"></div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MAIN DASHBOARD GRID
+                 ================================================= -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- =============================================
+                     BROADCAST ACTIVITY
+                     ============================================= -->
+
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow purple-text">
+                                COMMUNICATION
+                            </span>
+
+                            <h3>
+                                Broadcast Activity
+                            </h3>
+                        </div>
+
+                        <a
+                            href="messages.html"
+                            class="view-link"
+                        >
+                            View Messages
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="activity-list" id="recentActivityList">
+                        <!-- Rendered by js/dashboard-home.js from real broadcast data -->
+                    </div>
+
+                </article>
+
+
+
+                <!-- =============================================
+                     NOTIFICATIONS
+                     ============================================= -->
+
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow pink-text">
+                                ALERT CENTER
+                            </span>
+
+                            <h3>
+                                Notifications
+                            </h3>
+                        </div>
+
+                        <a
+                            href="notifications.html"
+                            class="view-link"
+                        >
+                            View All
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="notification-list" id="recentNotificationList">
+                        <!-- Rendered by js/dashboard-home.js from the real notification log -->
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+                 ================================================= -->
+
+            <section class="dashboard-card quick-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            SHORTCUTS
+                        </span>
+
+                        <h3>
+                            Quick Actions
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+                    <a
+                        href="members.html"
+                        class="quick-action purple-action"
+                    >
+                        <div>
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <span>
+                            Manage Members
+                        </span>
+                    </a>
+
+
+                    <a
+                        href="messages.html"
+                        class="quick-action pink-action"
+                    >
+                        <div>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+
+                        <span>
+                            Send Broadcast
+                        </span>
+                    </a>
+
+
+                    <a
+                        href="reports.html"
+                        class="quick-action orange-action"
+                    >
+                        <div>
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+
+                        <span>
+                            View Reports
+                        </span>
+                    </a>
+
+
+                    <a
+                        href="settings.html"
+                        class="quick-action green-action"
+                    >
+                        <div>
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+
+                        <span>
+                            System Settings
+                        </span>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 BOTTOM GRID
+                 ================================================= -->
+
+            <section class="bottom-grid">
+
+
+                <!-- Security -->
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow green-text">
+                                PROTECTION
+                            </span>
+
+                            <h3>
+                                Security Overview
+                            </h3>
+                        </div>
+
+                        <div class="secure-badge">
+                            <i class="fa-solid fa-check"></i>
+                            Secure
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-list">
+
+                        <div class="security-row">
+
+                            <div>
+                                <i class="fa-solid fa-shield-halved"></i>
+
+                                <span>
+                                    Multi-Factor Authentication
+                                </span>
+                            </div>
+
+                            <strong id="dashboardMfaStatus">
+                                Enabled
+                            </strong>
+
+                        </div>
+
+
+                        <div class="security-row">
+
+                            <div>
+                                <i class="fa-solid fa-lock"></i>
+
+                                <span>
+                                    Secure Admin Session
+                                </span>
+                            </div>
+
+                            <strong>
+                                Active
+                            </strong>
+
+                        </div>
+
+
+                        <div class="security-row">
+
+                            <div>
+                                <i class="fa-solid fa-database"></i>
+
+                                <span>
+                                    Database Connection
+                                </span>
+                            </div>
+
+                            <strong>
+                                Secure
+                            </strong>
+
+                        </div>
+
+
+                        <div class="security-row">
+
+                            <div>
+                                <i class="fa-solid fa-clock"></i>
+
+                                <span>
+                                    Last Security Scan
+                                </span>
+                            </div>
+
+                            <strong>
+                                Today
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- System Status -->
+                <article class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow orange-text">
+                                INFRASTRUCTURE
+                            </span>
+
+                            <h3>
+                                System Status
+                            </h3>
+                        </div>
+
+                        <div class="online-badge">
+                            <span></span>
+                            Online
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-list">
+
+                        <div class="system-row">
+
+                            <div>
+                                <i class="fa-solid fa-server"></i>
+
+                                <span>
+                                    API Server
+                                </span>
+                            </div>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <div>
+                                <i class="fa-solid fa-database"></i>
+
+                                <span>
+                                    Database
+                                </span>
+                            </div>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <div>
+                                <i class="fa-solid fa-message"></i>
+
+                                <span>
+                                    Messaging Service
+                                </span>
+                            </div>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <div>
+                                <i class="fa-solid fa-cloud"></i>
+
+                                <span>
+                                    Cloud Services
+                                </span>
+                            </div>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="dashboard-footer">
+
+                <span>
+                    © 2026 NOVEM CONTROLS PVT. LTD.
+                </span>
+
+                <span>
+                    Secure Administration Portal
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- Mobile Overlay -->
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- Dashboard JS -->
+<script src="js/dashboard.js"></script>
+<script src="js/dashboard-home.js"></script>
+
+</body>
+</html>

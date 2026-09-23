@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVEM CONTROLS | Login</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #070b12;
+            --card: #0d131d;
+            --card2: #111927;
+            --border: #253246;
+            --text: #f4f7fb;
+            --muted: #8d9aae;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --input: #090f18;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(59,130,246,.12), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(34,197,94,.08), transparent 35%),
+                var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: rgba(13,19,29,.95);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,.45);
+        }
+
+        /* LEFT SIDE */
+
+        .left {
+            position: relative;
+            padding: 55px;
+            background:
+                linear-gradient(145deg, rgba(59,130,246,.13), transparent 55%),
+                #0a1019;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                #60a5fa
+            );
+            color: white;
+            font-size: 25px;
+            box-shadow: 0 10px 30px rgba(59,130,246,.25);
+        }
+
+        .logo h2 {
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            max-width: 430px;
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .features {
+            margin-top: 35px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        .feature i {
+            color: var(--success);
+            font-size: 18px;
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        /* RIGHT SIDE */
+
+        .right {
+            padding: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-box {
+            width: 100%;
+            max-width: 410px;
+        }
+
+        .auth-header {
+            margin-bottom: 30px;
+        }
+
+        .auth-header h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .auth-header p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            background: var(--input);
+            color: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0 45px;
+            outline: none;
+            transition: .2s;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59,130,246,.10);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .row-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 4px 0 22px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .remember input {
+            width: 15px;
+            height: 15px;
+            padding: 0;
+            accent-color: var(--primary);
+        }
+
+        .link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--primary-dark)
+            );
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(37,99,235,.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #cbd5e1;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,.03);
+        }
+
+        .register-text {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        .register-text a {
+            color: #60a5fa;
+            cursor: pointer;
+        }
+
+        /* ALERT */
+
+        .alert {
+            display: none;
+            padding: 12px 14px;
+            border-radius: 9px;
+            margin-bottom: 18px;
+            font-size: 12px;
+        }
+
+        .alert.success {
+            display: block;
+            background: rgba(34,197,94,.10);
+            border: 1px solid rgba(34,197,94,.25);
+            color: #86efac;
+        }
+
+        .alert.error {
+            display: block;
+            background: rgba(239,68,68,.10);
+            border: 1px solid rgba(239,68,68,.25);
+            color: #fca5a5;
+        }
+
+        /* HIDDEN */
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* MFA */
+
+        .mfa-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: rgba(59,130,246,.12);
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 22px;
+        }
+
+        .mfa-code {
+            text-align: center;
+            font-size: 28px;
+            letter-spacing: 10px;
+            padding-left: 25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 850px) {
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 520px;
+            }
+
+            .left {
+                display: none;
+            }
+
+            .right {
+                padding: 35px 25px;
+            }
+        }
+
+        @media(max-width: 450px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 16px;
+            }
+
+            .right {
+                padding: 30px 20px;
+            }
+
+            .auth-header h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <section class="left">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="bi bi-shield-lock-fill"></i>
+            </div>
+
+            <div>
+                <h2>NOVEM CONTROLS</h2>
+                <span>SECURE NETWORK PORTAL</span>
+            </div>
+        </div>
+
+        <div class="hero">
+
+            <h1>
+                Secure Access.<br>
+                <span>Smart Control.</span>
+            </h1>
+
+            <p>
+                Welcome to the NOVEM CONTROLS secure management
+                and learning portal. Access your dashboard,
+                attendance, communication and resources from one place.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Secure authentication
+                </div>
+
+                <div class="feature">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Role-based access
+                </div>
+
+                <div class="feature">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Attendance &amp; dashboard management
+                </div>
+
+                <div class="feature">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Protected user data
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 NOVEM CONTROLS. All rights reserved.
+        </div>
+
+    </section>
+
+
+    <!-- RIGHT -->
+    <section class="right">
+
+        <div class="auth-box">
+
+            <!-- LOGIN -->
+            <div id="loginSection">
+
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your NOVEM CONTROLS account.</p>
+                </div>
+
+                <div id="loginAlert" class="alert"></div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="username">
+                            USERNAME / EMAIL
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-person"></i>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="Enter username or email"
+                                autocomplete="username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            PASSWORD
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <span
+                                class="password-toggle"
+                                id="togglePassword"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row-between">
+
+                        <label class="remember">
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+                            Remember me
+                        </label>
+
+                        <a
+                            class="link"
+                            id="forgotPasswordBtn"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="loginBtn"
+                    >
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        &nbsp; Sign In
+                    </button>
+
+                </form>
+
+
+                <div class="register-text">
+                    New to NOVEM CONTROLS?
+                    <a id="showRegister">Create an account</a>
+                </div>
+
+            </div>
+
+
+            <!-- REGISTER -->
+            <div id="registerSection" class="hidden">
+
+                <div class="auth-header">
+
+                    <h2>Create Account</h2>
+
+                    <p>
+                        Register your NOVEM CONTROLS account.
+                    </p>
+
+                </div>
+
+                <div id="registerAlert" class="alert"></div>
+
+                <form id="registerForm">
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            FULL NAME
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-person"></i>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            EMAIL
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                placeholder="Enter email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerUsername">
+                            USERNAME
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-person-badge"></i>
+
+                            <input
+                                type="text"
+                                id="registerUsername"
+                                placeholder="Create username"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            PASSWORD
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-lock"></i>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Create password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i class="bi bi-person-plus"></i>
+                        &nbsp; Create Account
+                    </button>
+
+                </form>
+
+
+                <div class="register-text">
+                    Already have an account?
+                    <a id="showLogin">Sign in</a>
+                </div>
+
+            </div>
+
+
+            <!-- FORGOT PASSWORD -->
+            <div id="forgotSection" class="hidden">
+
+                <div class="auth-header">
+
+                    <h2>Reset Password</h2>
+
+                    <p>
+                        Enter your registered email address.
+                    </p>
+
+                </div>
+
+                <div id="forgotAlert" class="alert"></div>
+
+                <form id="forgotForm">
+
+                    <div class="form-group">
+
+                        <label for="forgotEmail">
+                            EMAIL ADDRESS
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="forgotEmail"
+                                placeholder="Enter registered email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i class="bi bi-envelope-check"></i>
+                        &nbsp; Send Reset Request
+                    </button>
+
+                </form>
+
+                <div class="register-text">
+                    <a id="backToLogin">
+                        ← Back to login
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- MFA -->
+            <div id="mfaSection" class="hidden">
+
+                <div class="mfa-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+
+                <div class="auth-header">
+
+                    <h2>Verification Required</h2>
+
+                    <p>
+                        Enter the verification code sent to your
+                        registered device.
+                    </p>
+
+                </div>
+
+                <div id="mfaAlert" class="alert"></div>
+
+                <form id="mfaForm">
+
+                    <div class="form-group">
+
+                        <label for="mfaCode">
+                            VERIFICATION CODE
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mfaCode"
+                            class="mfa-code"
+                            maxlength="6"
+                            inputmode="numeric"
+                            placeholder="000000"
+                            required
+                        >
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i class="bi bi-shield-check"></i>
+                        &nbsp; Verify &amp; Continue
+                    </button>
+
+                </form>
+
+                <div class="register-text">
+                    <a id="cancelMfa">
+                        ← Back to login
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- Authentication service (local identity store; repoint to a central server when provisioned) -->
+<script src="js/totp.js"></script>
+<script src="js/auth-mock.js"></script>
+
+<script>
+    /*
+     * NOVEM CONTROLS
+     * Login UI
+     *
+     * IMPORTANT:
+     * Google Login = REMOVED
+     * GitHub Login = REMOVED
+     */
+
+
+    const loginSection = document.getElementById("loginSection");
+    const registerSection = document.getElementById("registerSection");
+    const forgotSection = document.getElementById("forgotSection");
+    const mfaSection = document.getElementById("mfaSection");
+
+
+    function showSection(section) {
+
+        loginSection.classList.add("hidden");
+        registerSection.classList.add("hidden");
+        forgotSection.classList.add("hidden");
+        mfaSection.classList.add("hidden");
+
+        section.classList.remove("hidden");
+    }
+
+
+    /* =========================
+       PASSWORD VISIBILITY
+    ========================= */
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    togglePassword.addEventListener("click", function () {
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            togglePassword.innerHTML =
+                '<i class="bi bi-eye-slash"></i>';
+
+        } else {
+
+            passwordInput.type = "password";
+
+            togglePassword.innerHTML =
+                '<i class="bi bi-eye"></i>';
+        }
+
+    });
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    document
+        .getElementById("showRegister")
+        .addEventListener("click", function () {
+
+            showSection(registerSection);
+
+        });
+
+
+    document
+        .getElementById("showLogin")
+        .addEventListener("click", function () {
+
+            showSection(loginSection);
+
+        });
+
+
+    document
+        .getElementById("forgotPasswordBtn")
+        .addEventListener("click", function () {
+
+            showSection(forgotSection);
+
+        });
+
+
+    document
+        .getElementById("backToLogin")
+        .addEventListener("click", function () {
+
+            showSection(loginSection);
+
+        });
+
+
+    document
+        .getElementById("cancelMfa")
+        .addEventListener("click", function () {
+
+            showSection(loginSection);
+
+        });
+
+
+    /* =========================
+       ALERT FUNCTION
+    ========================= */
+
+    function showAlert(element, message, type) {
+
+        element.textContent = message;
+
+        element.className =
+            "alert " + type;
+
+    }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            const username =
+                document.getElementById("username").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const remember =
+                document.getElementById("rememberMe").checked;
+
+            const loginBtn =
+                document.getElementById("loginBtn");
+
+            const alertBox =
+                document.getElementById("loginAlert");
+
+
+            if (!username || !password) {
+
+                showAlert(
+                    alertBox,
+                    "Please enter username and password.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            loginBtn.disabled = true;
+
+            loginBtn.innerHTML =
+                '<i class="bi bi-arrow-repeat"></i> Signing in...';
+
+
+            try {
+
+                /*
+                 * Backend API
+                 *
+                 * Change this URL only if your backend
+                 * uses a different endpoint.
+                 */
+
+                const response = await fetch(
+                    "/api/auth/login",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            username: username,
+                            password: password
+                        })
+                    }
+                );
+
+
+                const data = await response.json()
+                    .catch(() => ({}));
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        data.error ||
+                        "Login failed. Check your credentials."
+                    );
+                }
+
+
+                /*
+                 * Store authentication response
+                 */
+
+                if (data.token) {
+
+                    if (remember) {
+
+                        localStorage.setItem(
+                            "novem_token",
+                            data.token
+                        );
+
+                    } else {
+
+                        sessionStorage.setItem(
+                            "novem_token",
+                            data.token
+                        );
+                    }
+                }
+
+
+                if (data.user) {
+
+                    localStorage.setItem(
+                        "novem_user",
+                        JSON.stringify(data.user)
+                    );
+                }
+
+
+                /*
+                 * MFA support
+                 */
+
+                if (
+                    data.mfaRequired === true ||
+                    data.requiresMFA === true
+                ) {
+
+                    showSection(mfaSection);
+
+                    showAlert(
+                        document.getElementById("mfaAlert"),
+                        "Enter your verification code.",
+                        "success"
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Redirect
+                 */
+
+                if (data.redirect) {
+
+                    window.location.href =
+                        data.redirect;
+
+                } else {
+
+                    window.location.href =
+                        "/dashboard.html";
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Login Error:",
+                    error
+                );
+
+                showAlert(
+                    alertBox,
+                    error.message ||
+                    "Unable to connect to server.",
+                    "error"
+                );
+
+            } finally {
+
+                loginBtn.disabled = false;
+
+                loginBtn.innerHTML =
+                    '<i class="bi bi-box-arrow-in-right"></i> &nbsp; Sign In';
+            }
+
+        });
+
+
+    /* =========================
+       REGISTER
+    ========================= */
+
+    document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("registerName").value.trim();
+
+            const email =
+                document.getElementById("registerEmail").value.trim();
+
+            const username =
+                document.getElementById("registerUsername").value.trim();
+
+            const password =
+                document.getElementById("registerPassword").value;
+
+            const alertBox =
+                document.getElementById("registerAlert");
+
+
+            if (!name || !email || !username || !password) {
+
+                showAlert(
+                    alertBox,
+                    "Please fill all fields.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/register",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            username,
+                            password
+                        })
+                    }
+                );
+
+
+                const data =
+                    await response.json().catch(() => ({}));
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        data.error ||
+                        "Registration failed."
+                    );
+                }
+
+
+                showAlert(
+                    alertBox,
+                    "Account created successfully. You can now login.",
+                    "success"
+                );
+
+
+                setTimeout(function () {
+
+                    showSection(loginSection);
+
+                    document.getElementById(
+                        "username"
+                    ).value = username;
+
+                }, 1200);
+
+
+            } catch (error) {
+
+                showAlert(
+                    alertBox,
+                    error.message ||
+                    "Registration failed.",
+                    "error"
+                );
+
+            }
+
+        });
+
+
+    /* =========================
+       FORGOT PASSWORD
+    ========================= */
+
+    document
+        .getElementById("forgotForm")
+        .addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("forgotEmail").value.trim();
+
+            const alertBox =
+                document.getElementById("forgotAlert");
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/forgot-password",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email
+                        })
+                    }
+                );
+
+
+                const data =
+                    await response.json().catch(() => ({}));
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to process request."
+                    );
+                }
+
+
+                showAlert(
+                    alertBox,
+                    data.message ||
+                    "Password reset request sent.",
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                showAlert(
+                    alertBox,
+                    error.message ||
+                    "Unable to process request.",
+                    "error"
+                );
+
+            }
+
+        });
+
+
+    /* =========================
+       MFA
+    ========================= */
+
+    document
+        .getElementById("mfaForm")
+        .addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            const code =
+                document.getElementById("mfaCode").value.trim();
+
+            const alertBox =
+                document.getElementById("mfaAlert");
+
+
+            if (!/^\d{6}$/.test(code)) {
+
+                showAlert(
+                    alertBox,
+                    "Enter a valid 6-digit verification code.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/verify-mfa",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            code
+                        })
+                    }
+                );
+
+
+                const data =
+                    await response.json().catch(() => ({}));
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Invalid verification code."
+                    );
+                }
+
+
+                if (data.token) {
+
+                    localStorage.setItem(
+                        "novem_token",
+                        data.token
+                    );
+                }
+
+
+                showAlert(
+                    alertBox,
+                    "Verification successful.",
+                    "success"
+                );
+
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        data.redirect ||
+                        "/dashboard.html";
+
+                }, 500);
+
+
+            } catch (error) {
+
+                showAlert(
+                    alertBox,
+                    error.message ||
+                    "Verification failed.",
+                    "error"
+                );
+
+            }
+
+        });
+
+
+    /* =========================
+       MFA CODE ONLY NUMBERS
+    ========================= */
+
+    document
+        .getElementById("mfaCode")
+        .addEventListener("input", function () {
+
+            this.value =
+                this.value
+                    .replace(/\D/g, "")
+                    .slice(0, 6);
+
+        });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Coding Test | NOVEM CONTROLS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/code-test.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                NC
+            </div>
+
+            <div class="brand-text">
+                <strong>NOVEM</strong>
+                <span>CONTROLS</span>
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        DEVELOPER TOOLS
+                    </span>
+
+                    <h1>
+                        Live Coding Test
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="page-content">
+
+            <div class="code-page-heading">
+                <div>
+                    <h2>Live Coding Test</h2>
+                    <p>Write code in any supported language and run it against a real compiler — right in your browser.</p>
+                </div>
+                <span class="live-pill"><span></span> LIVE COMPILER CONNECTED</span>
+            </div>
+
+            <div class="code-toolbar">
+                <select id="languageSelect">
+                    <option value="">Loading languages…</option>
+                </select>
+
+                <button class="code-btn outline" id="loadSampleBtn">
+                    <i class="bi bi-file-earmark-code"></i> Load sample
+                </button>
+
+                <button class="code-btn outline" id="clearCodeBtn">
+                    <i class="bi bi-trash3"></i> Clear
+                </button>
+
+                <span class="code-status-tag idle" id="codeStatusTag">Idle</span>
+
+                <button class="code-btn run" id="runCodeBtn">
+                    <i class="bi bi-play-fill"></i> Run code
+                </button>
+            </div>
+
+            <div class="code-grid">
+
+                <div class="code-panel">
+                    <div class="code-panel-header">
+                        <strong>Editor</strong>
+                        <span id="editorLangLabel">Select a language to begin</span>
+                    </div>
+                    <textarea id="codeEditor" spellcheck="false" placeholder="// Write your code here…"></textarea>
+                </div>
+
+                <div class="code-panel">
+                    <div class="code-panel-header">
+                        <strong>Output</strong>
+                        <span>stdout / stderr</span>
+                    </div>
+                    <div class="output-body" id="outputBody"><span class="placeholder">Run your code to see live output here…</span></div>
+                    <div class="run-meta-row" id="runMetaRow" style="display:none;">
+                        <span>Exit code: <strong id="exitCodeVal">—</strong></span>
+                        <span>Runtime: <strong id="runtimeVal">—</strong></span>
+                        <span>Time: <strong id="execTimeVal">—</strong></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="code-history">
+                <div class="code-history-header">
+                    <h3>Run history (this session)</h3>
+                    <button class="code-btn outline" id="clearHistoryBtn" style="height:34px; padding:0 12px; font-size:11.5px;">
+                        <i class="bi bi-arrow-counterclockwise"></i> Clear
+                    </button>
+                </div>
+                <table class="history-table" id="historyTable" style="display:none;">
+                    <thead>
+                        <tr><th>Time</th><th>Language</th><th>Snippet</th><th>Result</th></tr>
+                    </thead>
+                    <tbody id="historyBody"></tbody>
+                </table>
+                <div class="history-empty" id="historyEmpty">
+                    <i class="bi bi-clock-history"></i>
+                    No runs yet — execute some code above to see your history here.
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/code-test.js"></script>
+
+</body>
+</html>

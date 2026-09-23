@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members | </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/members.css">
+
+    <!-- SheetJS — reads/writes real .xlsx files entirely in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                NC
+            </div>
+
+            <div class="brand-text">
+                <strong>NOVEM</strong>
+                <span>CONTROLS</span>
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        ADMIN PORTAL
+                    </span>
+
+                    <h1>
+                        Members
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="dashboard-content">
+
+
+            <!-- PAGE HEADER -->
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="welcome-label">
+                        MEMBER MANAGEMENT
+                    </span>
+
+                    <h2>Members Directory</h2>
+
+                    <p>
+                        Manage registered members and their account status.
+                    </p>
+
+                </div>
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+
+                    <button
+                        class="primary-btn"
+                        id="importExcelBtn"
+                        data-requires-role="admin,manager"
+                        style="background:#fff; border:1px solid var(--border); color:#40506a;"
+                    >
+                        <i class="bi bi-file-earmark-arrow-up"></i>
+                        Import Excel
+                    </button>
+
+                    <input type="file" id="excelFileInput" accept=".xlsx,.xls,.csv" hidden>
+
+                    <button
+                        class="primary-btn"
+                        id="exportExcelBtn"
+                        style="background:#fff; border:1px solid var(--border); color:#40506a;"
+                    >
+                        <i class="bi bi-file-earmark-arrow-down"></i>
+                        Download Excel
+                    </button>
+
+                    <button
+                        class="primary-btn"
+                        id="addMemberBtn"
+                        data-requires-role="admin,manager"
+                    >
+                        <i class="bi bi-person-plus"></i>
+                        Add Member
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEMBER STATS -->
+            <div class="member-stats">
+
+                <div class="member-stat">
+
+                    <div class="member-stat-icon blue">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Members</span>
+                        <strong id="totalMembers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="member-stat">
+
+                    <div class="member-stat-icon green">
+                        <i class="bi bi-person-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Active</span>
+                        <strong id="activeMembers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="member-stat">
+
+                    <div class="member-stat-icon orange">
+                        <i class="bi bi-person-dash"></i>
+                    </div>
+
+                    <div>
+                        <span>Inactive</span>
+                        <strong id="inactiveMembers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="member-stat">
+
+                    <div class="member-stat-icon purple">
+                        <i class="bi bi-person-plus"></i>
+                    </div>
+
+                    <div>
+                        <span>New This Month</span>
+                        <strong id="newThisMonth">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEMBER PANEL -->
+            <div class="panel members-panel">
+
+                <!-- FILTER BAR -->
+                <div class="member-toolbar">
+
+                    <div class="search-box">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            id="memberSearch"
+                            placeholder="Search by name, ID or email..."
+                        >
+
+                    </div>
+
+
+                    <div class="filters">
+
+                        <select id="departmentFilter">
+
+                            <option value="all">
+                                All Departments
+                            </option>
+
+                            <option value="Engineering">
+                                Engineering
+                            </option>
+
+                            <option value="Operations">
+                                Operations
+                            </option>
+
+                            <option value="Production">
+                                Production
+                            </option>
+
+                        </select>
+
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-wrapper">
+
+                    <table class="members-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    <input
+                                        type="checkbox"
+                                        id="selectAll"
+                                    >
+                                </th>
+
+                                <th>MEMBER</th>
+
+                                <th>MEMBER ID</th>
+
+                                <th>DEPARTMENT</th>
+
+                                <th>EMAIL</th>
+
+                                <th>STATUS</th>
+
+                                <th>JOINED</th>
+
+                                <th>ACTION</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="membersTableBody">
+
+                            <tr id="noMembersRow">
+                                <td colspan="8" style="text-align:center; padding:50px 20px; color:#8b97a8;">
+                                    <i class="bi bi-people" style="font-size:30px; color:#c3cad6; display:block; margin-bottom:12px;"></i>
+                                    <strong style="display:block; color:#45546a; font-size:14px; margin-bottom:5px;">No members yet</strong>
+                                    Add a member or import an Excel file to get started.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div class="pagination-area">
+
+                    <span>
+                        Showing 1–3 of 1,248 members
+                    </span>
+
+                    <div class="pagination">
+
+                        <button disabled>
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+
+                        <button class="current">
+                            1
+                        </button>
+
+                        <button>
+                            2
+                        </button>
+
+                        <button>
+                            3
+                        </button>
+
+                        <span>...</span>
+
+                        <button>
+                            125
+                        </button>
+
+                        <button>
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+<div
+    class="modal-overlay"
+    id="memberModal"
+>
+
+    <div class="member-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span>MEMBER MANAGEMENT</span>
+                <h3>Add New Member</h3>
+            </div>
+
+            <button id="closeModal">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
+
+        <form id="memberForm">
+
+            <div class="form-grid">
+
+                <div class="form-field">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="memberName"
+                        placeholder="Enter full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Member ID</label>
+
+                    <input
+                        type="text"
+                        id="memberId"
+                        placeholder="NCM-XXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="memberEmail"
+                        placeholder="member@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>Department</label>
+
+                    <select id="memberDepartment">
+
+                        <option value="Engineering">
+                            Engineering
+                        </option>
+
+                        <option value="Operations">
+                            Operations
+                        </option>
+
+                        <option value="Production">
+                            Production
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelModal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    <i class="bi bi-person-plus"></i>
+                    Add Member
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/members.js"></script>
+
+</body>
+</html>

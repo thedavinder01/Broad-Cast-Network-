@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | NOVEM CONTROLS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                NC
+            </div>
+
+            <div class="brand-text">
+                <strong>NOVEM</strong>
+                <span>CONTROLS</span>
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        SYSTEM CONFIGURATION
+                    </span>
+
+                    <h1>
+                        Settings
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="page-container">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="page-kicker">SYSTEM CONFIGURATION</span>
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Manage administrator profile, security and system preferences.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- DEMO -->
+            <div class="settings-notice">
+
+                <i class="bi bi-info-circle-fill"></i>
+
+                <div>
+                    <strong>Secure Local Storage</strong>
+
+                    <p>
+                        Your profile, security and preference changes are saved
+                        automatically to this device.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-layout">
+
+                <!-- SETTINGS NAV -->
+                <div class="settings-nav">
+
+                    <button class="settings-tab active" data-target="profile">
+                        <i class="bi bi-person-circle"></i>
+
+                        <div>
+                            <strong>Admin Profile</strong>
+                            <small>Account information</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="security">
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        <div>
+                            <strong>Security</strong>
+                            <small>Password & sessions</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="mfa">
+                        <i class="bi bi-key-fill"></i>
+
+                        <div>
+                            <strong>MFA</strong>
+                            <small>Authentication settings</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="team" id="teamTabBtn" style="display:none;">
+                        <i class="bi bi-people-fill"></i>
+
+                        <div>
+                            <strong>Team &amp; Roles</strong>
+                            <small>Admin only</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="notifications">
+                        <i class="bi bi-bell-fill"></i>
+
+                        <div>
+                            <strong>Notifications</strong>
+                            <small>Alert preferences</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="appearance">
+                        <i class="bi bi-palette-fill"></i>
+
+                        <div>
+                            <strong>Appearance</strong>
+                            <small>Interface preferences</small>
+                        </div>
+                    </button>
+
+
+                    <button class="settings-tab" data-target="system">
+                        <i class="bi bi-sliders"></i>
+
+                        <div>
+                            <strong>System</strong>
+                            <small>Application configuration</small>
+                        </div>
+                    </button>
+
+                </div>
+
+
+                <!-- SETTINGS CONTENT -->
+                <div class="settings-content">
+
+
+                    <!-- PROFILE -->
+                    <div class="settings-panel active" id="profile">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>Administrator Profile</h4>
+                                <p>Update your administrative account information.</p>
+                            </div>
+
+                            <i class="bi bi-person-circle"></i>
+
+                        </div>
+
+
+                        <div class="profile-box">
+
+                            <div class="profile-avatar-large">
+                                A
+                            </div>
+
+                            <div>
+                                <h5>Administrator</h5>
+                                <p>Super Administrator</p>
+
+                                <button class="outline-small">
+                                    <i class="bi bi-camera"></i>
+                                    Change Avatar
+                                </button>
+                            </div>
+
+                        </div>
+
+
+                        <form id="profileForm">
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+                                    <label>Full Name</label>
+                                    <input
+                                        type="text"
+                                        id="adminName"
+                                        value="Administrator"
+                                    >
+                                </div>
+
+
+                                <div class="form-field">
+                                    <label>Username</label>
+                                    <input
+                                        type="text"
+                                        id="adminUsername"
+                                        value="admin"
+                                    >
+                                </div>
+
+
+                                <div class="form-field">
+                                    <label>Email Address</label>
+                                    <input
+                                        type="email"
+                                        id="adminEmail"
+                                        value="admin@novemcontrols.com"
+                                    >
+                                </div>
+
+
+                                <div class="form-field">
+                                    <label>Phone Number</label>
+                                    <input
+                                        type="tel"
+                                        id="adminPhone"
+                                        value="+91 XXXXX XXXXX"
+                                    >
+                                </div>
+
+                            </div>
+
+
+                            <button class="save-btn" type="submit">
+                                <i class="bi bi-check2-circle"></i>
+                                Save Profile
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- SECURITY -->
+                    <div class="settings-panel" id="security">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>Security Settings</h4>
+                                <p>Manage password and active administrative sessions.</p>
+                            </div>
+
+                            <i class="bi bi-shield-lock-fill"></i>
+
+                        </div>
+
+
+                        <div class="security-status">
+
+                            <div class="security-status-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+
+                            <div>
+                                <strong>Security Status: Protected</strong>
+
+                                <p>
+                                    Your administrator account is protected by
+                                    multi-factor authentication.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="setting-section">
+
+                            <h5>Change Password</h5>
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+                                    <label>Current Password</label>
+
+                                    <input
+                                        type="password"
+                                        id="currentPassword"
+                                    >
+                                </div>
+
+                                <div></div>
+
+                                <div class="form-field">
+                                    <label>New Password</label>
+
+                                    <input
+                                        type="password"
+                                        id="newPassword"
+                                    >
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Confirm Password</label>
+
+                                    <input
+                                        type="password"
+                                        id="confirmPassword"
+                                    >
+                                </div>
+
+                            </div>
+
+                            <button class="save-btn" id="changePassword">
+                                <i class="bi bi-lock"></i>
+                                Update Password
+                            </button>
+
+                        </div>
+
+
+                        <div class="setting-section">
+
+                            <h5>Active Sessions</h5>
+
+                            <div class="session-item">
+
+                                <div class="session-icon">
+                                    <i class="bi bi-laptop"></i>
+                                </div>
+
+                                <div class="session-info">
+                                    <strong>Current Windows Session</strong>
+                                    <span>Chrome • Current Device</span>
+                                </div>
+
+                                <span class="current-badge">
+                                    Current
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MFA -->
+                    <div class="settings-panel" id="mfa">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>Multi-Factor Authentication</h4>
+                                <p>Real TOTP-based 2FA — works with Google Authenticator, Authy, 1Password, etc.</p>
+                            </div>
+
+                            <i class="bi bi-key-fill"></i>
+
+                        </div>
+
+
+                        <div class="mfa-card">
+
+                            <div class="mfa-icon">
+                                <i class="bi bi-shield-lock-fill"></i>
+                            </div>
+
+                            <div class="mfa-info">
+
+                                <h5>Authenticator MFA</h5>
+
+                                <p>
+                                    Require an authenticator verification code
+                                    during administrator login.
+                                </p>
+
+                            </div>
+
+                            <span id="mfaStatusTag" class="current-badge" style="background:#f1f3f6; color:#7b8798;">
+                                Checking…
+                            </span>
+
+                        </div>
+
+
+                        <div class="mfa-status" id="mfaStatusBanner" style="display:none;">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                <strong>MFA is enabled</strong>
+                                <p>Additional authentication is required at login.</p>
+                            </div>
+                        </div>
+
+
+                        <!-- SETUP FLOW (shown when MFA is off) -->
+                        <div class="setting-section" id="mfaSetupSection">
+
+                            <h5>Authenticator Setup</h5>
+
+                            <p class="section-description">
+                                Click below to generate a real QR code. Scan it with Google Authenticator (or similar),
+                                then enter the 6-digit code it shows to turn on MFA.
+                            </p>
+
+                            <button class="outline-btn" id="setupMfa">
+                                <i class="bi bi-qr-code"></i>
+                                Setup Authenticator
+                            </button>
+
+                            <div id="mfaQrArea" style="display:none; margin-top:18px;">
+                                <img id="mfaQrImg" src="" alt="MFA QR code" style="width:180px; height:180px; border:1px solid #e2e8f0; border-radius:10px; padding:8px; background:#fff;">
+                                <p style="font-size:11px; color:#8a94a5; margin:10px 0 4px;">
+                                    Can't scan? Enter this key manually: <code id="mfaSecretText" style="font-size:11px;"></code>
+                                </p>
+
+                                <div class="form-field" style="max-width:200px; margin-top:14px;">
+                                    <label for="mfaVerifyCode">Enter the 6-digit code</label>
+                                    <input type="text" id="mfaVerifyCode" maxlength="6" inputmode="numeric" placeholder="••••••">
+                                </div>
+                                <button class="save-btn" id="mfaVerifyBtn" style="margin-top:12px;">
+                                    <i class="bi bi-check2-circle"></i> Verify &amp; enable
+                                </button>
+                                <div id="mfaVerifyError" style="color:#dc3545; font-size:11.5px; margin-top:8px;"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- DISABLE FLOW (shown when MFA is on) -->
+                        <div class="setting-section" id="mfaDisableSection" style="display:none;">
+                            <h5>Turn off MFA</h5>
+                            <p class="section-description">Two-factor authentication is currently protecting this account.</p>
+                            <button class="outline-btn" id="mfaDisableBtn" style="color:#c54848; border-color:#e0aaaa;">
+                                <i class="bi bi-shield-slash"></i> Disable MFA
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- TEAM & ROLES (admin only) -->
+                    <div class="settings-panel" id="team">
+
+                        <div class="panel-header">
+                            <div>
+                                <h4>Team &amp; Roles</h4>
+                                <p>Manage who can access what across the portal.</p>
+                            </div>
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="report-table" style="width:100%;">
+                                <thead>
+                                    <tr><th>Name</th><th>Username</th><th>Signed in via</th><th>Role</th></tr>
+                                </thead>
+                                <tbody id="teamTableBody">
+                                    <tr><td colspan="4" style="text-align:center; padding:30px; color:#8b97a8;">Loading…</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="section-description" style="margin-top:16px;">
+                            <strong>Viewer</strong> can only browse. <strong>Manager</strong> can manage members and send broadcasts.
+                            <strong>Admin</strong> has full access, including this Team &amp; Roles page.
+                        </p>
+
+                    </div>
+
+
+                    <!-- NOTIFICATIONS -->
+                    <div class="settings-panel" id="notifications">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>Notification Preferences</h4>
+                                <p>Choose which administrative alerts you receive.</p>
+                            </div>
+
+                            <i class="bi bi-bell-fill"></i>
+
+                        </div>
+
+
+                        <div class="preference-list">
+
+                            <div class="preference-item">
+
+                                <div>
+                                    <strong>Security Alerts</strong>
+                                    <span>Receive important account security alerts.</span>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span></span>
+                                </label>
+
+                            </div>
+
+
+                            <div class="preference-item">
+
+                                <div>
+                                    <strong>Broadcast Reports</strong>
+                                    <span>Receive message delivery summaries.</span>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span></span>
+                                </label>
+
+                            </div>
+
+
+                            <div class="preference-item">
+
+                                <div>
+                                    <strong>System Alerts</strong>
+                                    <span>Receive system health notifications.</span>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span></span>
+                                </label>
+
+                            </div>
+
+
+                            <div class="preference-item">
+
+                                <div>
+                                    <strong>Maintenance Notifications</strong>
+                                    <span>Receive scheduled maintenance updates.</span>
+                                </div>
+
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span></span>
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                        <button class="save-btn" id="saveNotifications">
+                            <i class="bi bi-check2-circle"></i>
+                            Save Preferences
+                        </button>
+
+                    </div>
+
+
+                    <!-- APPEARANCE -->
+                    <div class="settings-panel" id="appearance">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>Appearance</h4>
+                                <p>Customize the administrative interface.</p>
+                            </div>
+
+                            <i class="bi bi-palette-fill"></i>
+
+                        </div>
+
+
+                        <div class="appearance-options">
+
+                            <div class="theme-option selected">
+
+                                <div class="theme-preview light-preview">
+                                    <div></div>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <div>
+                                    <strong>Enterprise Light</strong>
+                                    <small>Recommended</small>
+                                </div>
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                            </div>
+
+
+                            <div class="theme-option">
+
+                                <div class="theme-preview hybrid-preview">
+                                    <div></div>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                                <div>
+                                    <strong>Hybrid</strong>
+                                    <small>Dark sidebar + light content</small>
+                                </div>
+
+                                <i class="bi bi-circle"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SYSTEM -->
+                    <div class="settings-panel" id="system">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h4>System Settings</h4>
+                                <p>Application and network configuration.</p>
+                            </div>
+
+                            <i class="bi bi-sliders"></i>
+
+                        </div>
+
+
+                        <div class="system-grid">
+
+                            <div class="system-item">
+                                <span>Application</span>
+                                <strong>NOVEM CONTROLS NETWORK</strong>
+                            </div>
+
+                            <div class="system-item">
+                                <span>Environment</span>
+                                <strong>Development</strong>
+                            </div>
+
+                            <div class="system-item">
+                                <span>Frontend Version</span>
+                                <strong>2.0.0</strong>
+                            </div>
+
+                            <div class="system-item">
+                                <span>Authentication</span>
+                                <strong>Admin + OTP + MFA</strong>
+                            </div>
+
+                            <div class="system-item">
+                                <span>Database</span>
+                                <strong>MongoDB — Backend Pending</strong>
+                            </div>
+
+                            <div class="system-item">
+                                <span>Network Status</span>
+                                <strong class="online">
+                                    <i class="bi bi-circle-fill"></i>
+                                    Operational
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="danger-zone">
+
+                            <div>
+                                <h5>Danger Zone</h5>
+
+                                <p>
+                                    These actions should only be available to
+                                    authorized administrators.
+                                </p>
+                            </div>
+
+                            <button id="clearDemoData">
+                                Reset Workspace Data
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <footer class="page-footer">
+                <span>© 2026 NOVEM CONTROLS PVT. LTD.</span>
+                <span>Secure Administrative Network</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="js/totp.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

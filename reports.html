@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports &amp; Analytics | NOVEM CONTROLS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                NC
+            </div>
+
+            <div class="brand-text">
+                <strong>NOVEM</strong>
+                <span>CONTROLS</span>
+            </div>
+
+        </div>
+
+
+        <!-- Admin -->
+        <div class="admin-box">
+
+            <div class="admin-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <strong>Administrator</strong>
+                <span>System Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+
+            <div class="menu-title">
+                MAIN
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="members.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Members</span>
+            </a>
+
+
+            <div class="menu-title">
+                COMMUNICATION
+            </div>
+
+            <a
+                href="messages.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bullhorn"></i>
+                <span>Broadcasts</span>
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span class="notification-count">
+                    4
+                </span>
+            </a>
+
+
+            <div class="menu-title">
+                ANALYTICS
+            </div>
+
+            <a
+                href="reports.html"
+                class="nav-link active"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="menu-title">
+                TOOLS
+            </div>
+
+            <a
+                href="code-test.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                <span>Coding Test</span>
+            </a>
+
+
+            <div class="menu-title">
+                SYSTEM
+            </div>
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+
+            <div class="secure-status">
+
+                <div class="secure-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <strong>Secure System</strong>
+                    <small>All systems operational</small>
+                </div>
+
+                <span class="online-dot"></span>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div>
+
+                    <span class="topbar-label">
+                        ANALYTICS CENTER
+                    </span>
+
+                    <h1>
+                        Reports &amp; Analytics
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+                <a
+                    href="notifications.html"
+                    class="topbar-icon"
+                >
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </a>
+
+
+                <!-- Profile -->
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <span>
+                            System Admin
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <section class="page-container">
+
+            <div class="page-header">
+
+                <div>
+                    <span class="page-kicker">ANALYTICS CENTER</span>
+                    <h1>Reports & Analytics</h1>
+                    <p>
+                        Monitor members, communication performance and system activity.
+                    </p>
+                </div>
+
+                <div class="report-actions">
+                    <button class="btn btn-outline-primary" id="printReport">
+                        <i class="bi bi-printer"></i>
+                        Print
+                    </button>
+
+                    <button class="btn btn-primary" id="exportReport">
+                        <i class="bi bi-download"></i>
+                        Export CSV
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- DEMO NOTICE -->
+            <div class="demo-notice">
+                <i class="bi bi-info-circle-fill"></i>
+
+                <div>
+                    <strong>Live Analytics</strong>
+                    <p>
+                        These figures update automatically from your Members directory
+                        and Broadcast activity — no manual refresh required.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- FILTER -->
+            <div class="report-filter-card">
+
+                <div class="filter-heading">
+                    <div>
+                        <h5>Report Filters</h5>
+                        <p>Choose the reporting period and category.</p>
+                    </div>
+
+                    <i class="bi bi-funnel"></i>
+                </div>
+
+                <div class="filter-controls">
+
+                    <div class="filter-group">
+                        <label>Reporting Period</label>
+
+                        <select id="periodFilter">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="365">This Year</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Report Type</label>
+
+                        <select id="typeFilter">
+                            <option value="all">All Reports</option>
+                            <option value="members">Members</option>
+                            <option value="messages">Messages</option>
+                            <option value="activity">Activity</option>
+                        </select>
+                    </div>
+
+                    <button class="apply-btn" id="applyFilter">
+                        <i class="bi bi-arrow-repeat"></i>
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="report-stats">
+
+                <div class="report-stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Members</span>
+                        <h3 id="totalMembers">1,248</h3>
+                        <small class="positive">
+                            <i class="bi bi-arrow-up"></i>
+                            3.2% this month
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="report-stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Active Members</span>
+                        <h3 id="activeMembers">1,196</h3>
+                        <small class="positive">
+                            95.8% active
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="report-stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="bi bi-send-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Messages Sent</span>
+                        <h3 id="messagesSent">8,642</h3>
+                        <small class="positive">
+                            <i class="bi bi-arrow-up"></i>
+                            8.6% growth
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="report-stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>Delivery Rate</span>
+                        <h3 id="deliveryRate">98.7%</h3>
+                        <small class="positive">
+                            Stable performance
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYTICS GRID -->
+            <div class="analytics-grid">
+
+
+                <!-- DEPARTMENT -->
+                <div class="analytics-card">
+
+                    <div class="analytics-header">
+
+                        <div>
+                            <h5>Members by Department</h5>
+                            <p>Current member distribution</p>
+                        </div>
+
+                        <i class="bi bi-diagram-3"></i>
+
+                    </div>
+
+
+                    <div class="department-list" id="departmentList">
+                        <div style="text-align:center; padding:30px; color:#8b97a8; font-size:12.5px;">Loading…</div>
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGE PERFORMANCE -->
+                <div class="analytics-card">
+
+                    <div class="analytics-header">
+
+                        <div>
+                            <h5>Message Performance</h5>
+                            <p>Broadcast delivery summary</p>
+                        </div>
+
+                        <i class="bi bi-bar-chart-line"></i>
+
+                    </div>
+
+
+                    <div class="performance-list">
+
+                        <div class="performance-row">
+                            <span>
+                                <i class="status-dot delivered"></i>
+                                Delivered
+                            </span>
+
+                            <strong id="deliveredCount">0</strong>
+                        </div>
+
+                        <div class="performance-row">
+                            <span>
+                                <i class="status-dot pending"></i>
+                                Recipients contacted
+                            </span>
+
+                            <strong id="recipientsCount">0</strong>
+                        </div>
+
+                        <div class="performance-row">
+                            <span>
+                                <i class="status-dot failed"></i>
+                                Failed
+                            </span>
+
+                            <strong id="failedCount">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="delivery-box">
+
+                        <div>
+                            <span>Overall Delivery</span>
+                            <strong id="overallDeliveryPct">0%</strong>
+                        </div>
+
+                        <div class="mini-progress">
+                            <div id="overallDeliveryBar" style="width:0%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY -->
+            <div class="analytics-card activity-card">
+
+                <div class="analytics-header">
+
+                    <div>
+                        <h5>Activity Summary</h5>
+                        <p>Communication activity over the selected period</p>
+                    </div>
+
+                    <i class="bi bi-activity"></i>
+
+                </div>
+
+
+                <div class="activity-chart" id="activityChart">
+                    <div style="width:100%; text-align:center; padding:30px; color:#8b97a8; font-size:12.5px;">Loading…</div>
+                </div>
+
+            </div>
+
+
+            <!-- DEPARTMENT TABLE -->
+            <div class="analytics-card table-card">
+
+                <div class="analytics-header">
+
+                    <div>
+                        <h5>Department Performance</h5>
+                        <p>Member and communication overview</p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="report-table">
+
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Members</th>
+                                <th>Active</th>
+                                <th>Share of directory</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="departmentTableBody">
+                            <tr><td colspan="4" style="text-align:center; padding:30px; color:#8b97a8;">Loading…</td></tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+            <footer class="page-footer">
+                <span>© 2026 NOVEM CONTROLS PVT. LTD.</span>
+                <span>Secure Administrative Network</span>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/reports.js"></script>
+
+</body>
+</html>
